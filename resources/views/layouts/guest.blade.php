@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    @include('layouts.partials.header')
+    <livewire:navigation-menu />
 
     <main class="container mx-auto px-5 flex flex-grow">
         {{ $slot }}

@@ -22,7 +22,7 @@
 <body class="font-sans antialiased">
     <x-banner />
 
-    @include('layouts.partials.header')
+    <livewire:navigation-menu />
 
     @yield('hero')
 
