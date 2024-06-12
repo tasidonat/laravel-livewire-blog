@@ -1,6 +1,13 @@
 <div class=" px-3 lg:px-7 py-6">
     <div class="flex justify-between items-center border-b border-gray-100">
         <div>
+            @if ($this->activeCategory || $search)
+                <button wire:click="clearFilters()" class="text-gray-800 text-xs mr-3 bg-gray-300 py-1 px-3 rounded">X</button>
+            @endif
+            @if ($this->activeCategory)
+                <x-badge textColor="{{ $this->activeCategory->text_color }}" bgColor="{{ $this->activeCategory->bg_color }}">
+                {{ $this->activeCategory->title }}</x-badge>
+            @endif
             @if ($search)
                 <h1 class="text-gray-600 font-bold">Searching {{ $search }}</h1>
             @endif

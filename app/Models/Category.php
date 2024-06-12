@@ -15,4 +15,9 @@ class Category extends Model
         'bg_color',
         'text_color',
     ];
+
+    public function posts()
+    {
+        return $this->belongsToMany(Post::class);
+    }
 }
