@@ -1,6 +1,6 @@
 @props(['post'])
 <div>
-    <a href="#">
+    <a wire:navigate href="{{ route('posts.show', $post->slug) }}">
         <div>
             <img class="w-full rounded-xl" src="{{ $post->getThumbnailImage() }}">
         </div>
@@ -8,12 +8,11 @@
     <div class="mt-3">
         <div class="flex items-center mb-2 gap-x-2">
             @if ($post->categories()->first())
-                <x-badge wire:navigate href="{{ route('posts.index', ['category' => $post->categories()->first()->slug]) }}" textColor="{{ $post->categories()->first()->text_color }}" bgColor="{{ $post->categories()->first()->bg_color }}">
-                {{ $post->categories()->first()->title }}</x-badge>
+                <x-posts.category-badge :category="$post->categories()->first()" />
             @endif
             <p class="text-gray-500 text-sm">{{ $post->published_at }}</p>
         </div>
-        <a href="#" class="text-xl font-bold text-gray-900">{{ $post->title }}</a>
+        <a wire:navigate href="{{ route('posts.show', $post->slug) }}" class="text-xl font-bold text-gray-900">{{ $post->title }}</a>
     </div>
 
 </div>
